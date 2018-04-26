@@ -1,4 +1,4 @@
-import { browser, element, by, Key } from 'protractor';
+import { browser, element, by, Key, protractor } from 'protractor';
 
 export class PokemonPage {
 
@@ -28,14 +28,14 @@ export class PokemonPage {
   }
 
   selectNextKey() {
-    browser.actions().sendKeys(Key.ARROW_RIGHT).perform();
+    $('body').sendKeys(protractor.Key.RIGHT);
   }
 
   selectPrevKey() {
-    browser.actions().sendKeys(Key.ARROW_LEFT).perform();
+    $('body').sendKeys(protractor.Key.LEFT);
   }
 
   selectEscapeKey() {
-    browser.actions().sendKeys(Key.ESCAPE).perform();
+    $('body').sendKeys(protractor.Key.ESCAPE);
   }
 }

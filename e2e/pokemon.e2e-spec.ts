@@ -48,17 +48,18 @@ describe('ng-pokedex //', function () {
   });
 
 
-  // TODO: fix on firefox
-  // it('deve abrir e permitir que use as teclas de seta para navegar entre pokemon', () => {
-  //   page.navigateTo();
-  //   page.getFirstPokemonCardElement().click();
-  //   page.selectNextKey();
-  //
-  //   expect(page.getOpenModalHeadingElement().getText()).toBe('Ivysaur #2');
-  //
-  //   page.selectPrevKey();
-  //   page.selectPrevKey();
-  //   expect(page.getOpenModalHeadingElement().getText()).toBe('Mew #151');
-  // });
+  it('deve abrir e permitir que use as teclas de seta para navegar entre pokemon', () => {
+
+    page.navigateTo();
+
+    page.getPokemonCardElements().get(5).click();
+    expect(page.getOpenModalElement()).toBeTruthy();
+    expect(page.getOpenModalHeadingElement().getText()).toBe('Charizard #6');
+
+    page.selectNextKey();
+    expect(page.getOpenModalHeadingElement().getText()).toBe('Squirtle #7');
+
+    sleep();
+  });
 
 });
