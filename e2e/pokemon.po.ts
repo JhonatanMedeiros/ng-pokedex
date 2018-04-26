@@ -1,8 +1,14 @@
 import { browser, element, by, Key } from 'protractor';
 
 export class PokemonPage {
+
   navigateTo() {
-    return browser.get('/pokemon');
+    browser.get('/pokemon');
+    return browser.waitForAngular();
+  }
+
+  getInputSearch() {
+    return element(by.id('inputSearch'));
   }
 
   getPokemonCardElements() {
